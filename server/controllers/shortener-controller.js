@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validUrl = require("valid-url");
 const shortid = require("shortid");
+const shortBaseUrl = require("../config/constants").baseUrl;
 
 const Shorten = mongoose.model("shorten");
 
@@ -17,7 +18,6 @@ exports.redirectUrl = async function (req, res) {
 
 exports.shortener = async function (req, res) {
     const { originalUrl } = req.body;
-    const shortBaseUrl = "http://localhost:7000";
 
     const now = new Date();
     const dbQueryOptions = req.body;

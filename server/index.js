@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors());
 router(app);
 
-const PORT = 7000;
+const PORT = 2053;
 app.listen(PORT, () => {
     console.log(`Server started on port`, PORT);
 });

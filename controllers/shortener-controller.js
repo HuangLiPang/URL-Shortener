@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const validUrl = require("valid-url");
 const shortid = require("shortid");
-const shortBaseUrl = require("../config/constants").baseUrl;
+
+const HEROKU_APP_NAME = process.env.HEROKU_APP_NAME;
+const shortBaseUrl = `http(s)://${HEROKU_APP_NAME}.herokuapp.com`;
 
 const Shorten = mongoose.model("shorten");
 

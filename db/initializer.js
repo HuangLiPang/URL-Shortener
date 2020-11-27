@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURI = require("../config/constants").mongoURI;
+const mongoURI = process.env.MONGO_URI;
 
 const { Schema } = mongoose;
 const urlShortenSchema = new Schema(
@@ -21,8 +21,8 @@ exports.initializer = function () {
     mongoose
         .connect(mongoURI, {
             keepAlive: true,
-            reconnectTries: Number.MAX_VALUE,
-            useMongoClient: true,
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
         })
         .then((connection) => {
             connection.db.dropDatabase();

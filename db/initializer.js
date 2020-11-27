@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const mongoURI = process.env.MONGO_URI;
+const mongoURI =
+    "mongodb+srv://huanglipang:huanglipang@cluster0.3jp43.mongodb.net/url-shortener?retryWrites=true&w=majority";
 
 const { Schema } = mongoose;
 const urlShortenSchema = new Schema(
@@ -18,15 +19,11 @@ const urlShortenSchema = new Schema(
 exports.initializer = function () {
     mongoose.Promise = global.Promise;
     mongoose.set("debug", true);
-    mongoose
-        .connect(mongoURI, {
-            keepAlive: true,
-            useUnifiedTopology: true,
-            useNewUrlParser: true,
-        })
-        .then((connection) => {
-            connection.db.dropDatabase();
-        });
+    mongoose.connect(mongoURI, {
+        keepAlive: true,
+        useUnifiedTopology: true,
+        useNewUrlParser: true,
+    });
 
     mongoose.model("shorten", urlShortenSchema);
 };

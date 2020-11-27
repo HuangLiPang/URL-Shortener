@@ -9,7 +9,7 @@ const router = require("./router");
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use("/", express.static(__dirname + "/client/public"));
+app.use("/", express.static(__dirname + "/client/build"));
 router(app);
 
 const PORT = process.env.PORT || 5000;

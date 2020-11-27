@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURI =
-    "mongodb+srv://huanglipang:huanglipang@cluster0.3jp43.mongodb.net/url-shortener?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGO_URI;
 
 const { Schema } = mongoose;
 const urlShortenSchema = new Schema(
